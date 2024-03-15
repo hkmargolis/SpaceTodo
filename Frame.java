@@ -1,23 +1,23 @@
 package space.todoapp;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import org.w3c.dom.events.MouseEvent;
 
 /**
+ * This class adds the Buttons, MenuBar, TaskPanel and Task objects to the
+ * frame.
  *
  * @author Hannah
  */
 public class Frame extends JFrame {
 
+    //Components
     MenuBar menubar = new MenuBar();
     TaskPanel taskPanel = new TaskPanel();
     Buttons buttons = new Buttons();
@@ -27,22 +27,27 @@ public class Frame extends JFrame {
     private JButton export_button;
 
     public Frame() {
+        //set up JFrame
         this.setTitle("SpaceTodo");
         this.setSize(400, 700);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
 
+        //add components
         this.add(this.menubar, BorderLayout.NORTH);
         this.add(this.buttons, BorderLayout.SOUTH);
         this.add(this.taskPanel, BorderLayout.CENTER);
 
+        //get access to buttons for listeners
         add_button = buttons.getAddButton();
         clearAll_button = buttons.getClearAllButton();
         export_button = buttons.getExportButton();
 
+        //add listeners
         addlisteners();
     }
 
+    //This function adds a listener for each button (add, clear, complete, clear all, and export).
     public void addlisteners() {
 
         add_button.addActionListener(new ActionListener() {
