@@ -1,14 +1,13 @@
 package space.todoapp;
 
-import java.awt.Color;
-
 /**
+ * Launches the program.
  *
  * @author Hannah
  */
 public class TodoApp {
 
     public static void main(String[] args) {
-        Frame frame = new Frame();
+        new Frame();
     }
 }
